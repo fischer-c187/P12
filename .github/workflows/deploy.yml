@@ -27,6 +27,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      VITE_DATA_MOCKED: 'false'
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
