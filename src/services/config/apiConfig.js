@@ -1,5 +1,10 @@
 import { formatActivityData, formatAverageSessionsData, formatPerformanceData, formatUserInfosData } from '../data/format';
-
+/**
+ * Describes the configuration for fetching data. 
+ * Provides paths for either mocked or backend data sources.
+ * The `formatDataFunction` callback is utilized to transform 
+ * raw data into a display-ready format.
+ */
 export const API_CONFIG = {
   user: {
     endpoint: (userId) => `http://localhost:3000/user/${userId}/`,
