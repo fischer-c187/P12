@@ -28,7 +28,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     env:
-      VITE_DATA_MOCKED: 'false'
+      VITE_DATA_MOCKED: 'true'
 
     steps:
       - name: Checkout
