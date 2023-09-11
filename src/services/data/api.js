@@ -1,22 +1,17 @@
 import { API_CONFIG } from '../config/apiConfig';
 
 async function safeFetch(url, options = {}) {
-  try {
-    const response = await fetch(url, options);
+  const response = await fetch(url, options);
 
-    if (response.status === 404) {
-      throw new Error('User not found');
-    }
-
-    if (!response) {
-      throw new Error('Network response was not ok');
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error('Failed to fetch from the API: ', error);
-    return null;
+  if (response.status === 404) {
+    throw new Error('User not found');
   }
+
+  if (!response) {
+    throw new Error('Network response was not ok');
+  }
+
+  return await response.json();
 }
 
 export async function fetchUserData(endpointConfig, userId) {
@@ -27,7 +22,7 @@ export async function fetchUserData(endpointConfig, userId) {
 
   const data = await safeFetch(endpoint);
 
-  if(endpointConfig.formatDataFunction) {
+  if (endpointConfig.formatDataFunction) {
     return endpointConfig.formatDataFunction(data);
   }
 
@@ -35,11 +30,16 @@ export async function fetchUserData(endpointConfig, userId) {
 }
 
 export async function fetchAllData(userId) {
-  const data = {};
+  try {
+    const data = {};
 
-  for (const [key, value] of Object.entries(API_CONFIG)) {
-    data[key] = await fetchUserData(value, userId);
+    for (const [key, value] of Object.entries(API_CONFIG)) {
+      data[key] = await fetchUserData(value, userId);
+    }
+
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch from the API: ', error);
+    return null;
   }
-
-  return data;
 }
