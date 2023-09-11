@@ -1,10 +1,10 @@
 import { API_CONFIG } from '../config/apiConfig';
 
-async function safeFetch(url, options={}) {
+async function safeFetch(url, options = {}) {
   try {
     const response = await fetch(url, options);
 
-    if(response.status === 404) {
+    if (response.status === 404) {
       throw new Error('User not found');
     }
 
@@ -20,13 +20,15 @@ async function safeFetch(url, options={}) {
 }
 
 export async function fetchUserData(endpointConfig, userId) {
-  const endpoint = endpointConfig.endpoint(userId);
-  let data = await safeFetch(endpoint);
+  const endpoint =
+    import.meta.env.VITE_DATA_MOCKED === 'true'
+      ? endpointConfig.mocked(userId)
+      : endpointConfig.endpoint(userId);
 
-  if (!data) {
-    console.info('Using mocked data due to API unavailability.');
-    const mockedEndPoint = endpointConfig.mocked(userId);
-    data = await safeFetch(mockedEndPoint);
+  const data = await safeFetch(endpoint);
+
+  if(endpointConfig.formatDataFunction) {
+    return endpointConfig.formatDataFunction(data);
   }
 
   return data;
@@ -35,7 +37,7 @@ export async function fetchUserData(endpointConfig, userId) {
 export async function fetchAllData(userId) {
   const data = {};
 
-  for(const [key, value] of Object.entries(API_CONFIG)){
+  for (const [key, value] of Object.entries(API_CONFIG)) {
     data[key] = await fetchUserData(value, userId);
   }
 
