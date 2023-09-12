@@ -1,9 +1,13 @@
 import './App.css';
-import { fetchAllData } from './services/data/api';
+import NavBar from './components/navBar/navBar';
+import MENU_TEXT from './constants/menuTexts';
 
 function App() {
-  console.log(fetchAllData(12));
-  return <></>;
+  return (
+    <>
+      <NavBar textConstant={MENU_TEXT} className='horizontal-nav'/>
+    </>
+  );
 }
 
 export default App;
