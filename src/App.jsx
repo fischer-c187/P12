@@ -1,9 +1,13 @@
 import './App.css';
-import { fetchAllData } from './services/data/api';
+import HORIZONTAL_NAV_TEXT  from './constants/horizontalNavText';
+import Header from './layouts/header/header';
 
 function App() {
-  console.log(fetchAllData(12));
-  return <></>;
+  return (
+    <>
+      <Header navItems={HORIZONTAL_NAV_TEXT}/>
+    </>
+  );
 }
 
 export default App;
