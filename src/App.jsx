@@ -5,7 +5,7 @@ import Header from './layouts/header/header';
 function App() {
   return (
     <>
-      <Header textConstant={HORIZONTAL_NAV_TEXT}/>
+      <Header navItems={HORIZONTAL_NAV_TEXT}/>
     </>
   );
 }
