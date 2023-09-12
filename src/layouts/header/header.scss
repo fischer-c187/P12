@@ -5,6 +5,11 @@
   padding: 1rem 2rem;
 
   &__logo {
+    min-height: 60px;
+    min-width: 180px;
+  }
+
+  &__logo-link {
     margin-right: 10%;
   }
 }
@@ -32,4 +37,3 @@
     }
   }
 }
-
