@@ -1,11 +1,11 @@
 import './App.css';
-import NavBar from './components/navBar/navBar';
 import HORIZONTAL_NAV_TEXT  from './constants/horizontalNavText';
+import Header from './layouts/header/header';
 
 function App() {
   return (
     <>
-      <NavBar textConstant={HORIZONTAL_NAV_TEXT} className='horizontal-nav'/>
+      <Header textConstant={HORIZONTAL_NAV_TEXT}/>
     </>
   );
 }
