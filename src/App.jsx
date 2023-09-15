@@ -1,16 +1,8 @@
 import './App.css';
-import HORIZONTAL_NAV_TEXT  from './constants/horizontalNavText';
-import SIDEBAR_NAV_TEXT from './constants/sidebarText';
-import Header from './layouts/header/header';
-import Sidebar from './layouts/sidebar/sidebar';
+import Home from './page/home/home';
 
 function App() {
-  return (
-    <>
-      <Header navItems={HORIZONTAL_NAV_TEXT}/>
-      <Sidebar navItems={SIDEBAR_NAV_TEXT}/>
-    </>
-  );
+  return <Home />;
 }
 
 export default App;
