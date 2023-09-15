@@ -47,12 +47,12 @@
   }
 
   &__link {
-    color: black;
+    color: var(--secondary-color);
     font-size: 1.5rem;
     font-weight: 700;
 
     &:visited {
-      color: currentColor;
+      color: var(--secondary-color);
     }   
   }
 }
