@@ -1,3 +1,25 @@
 .home-wrapper {
   flex: 1;
+  display: flex;
+
+  .home-main {
+    margin: auto;
+    height: 90%;
+    width: 80%;
+  }
+
+  .user-presentation {
+    &__title {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    &__name-user {
+      color: var(--main-color-name-user);
+    }
+
+    &__message-incentive {
+      font-size: 1.25rem;
+    }
+  }
 }
