@@ -3,6 +3,15 @@ import { DataDispatchContext } from '../context/dataContext';
 import { fetchAllData } from '../services/data/api';
 import { ActionTypes } from '../reducer/dataReducer/actionTypes';
 
+/**
+ * A custom hook that loads user data based on the provided userId.
+ * This hook will initiate a data fetch and dispatch actions to handle 
+ * the states of the fetch operation (start, success, error).
+ *
+ * @function
+ * @param {number|string} userId - The ID of the user for which data should be loaded.
+ * @returns {void}
+ */
 function useLoadUserData(userId) {
   const dispatch = useContext(DataDispatchContext);
 
@@ -22,6 +31,7 @@ function useLoadUserData(userId) {
 
     fetchData();
   }, [userId, dispatch]);
+
 }
 
 export default useLoadUserData;
