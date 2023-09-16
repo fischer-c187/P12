@@ -1,4 +1,5 @@
 import NavBar from '../../components/navBar/navBar';
+import SelectUser from '../../components/selectUser/selectUser';
 import './sidebar.scss';
 
 /**
@@ -16,6 +17,7 @@ import './sidebar.scss';
 function Sidebar({ navItems }) {
   return (
     <aside className='sidebar'>
+      <SelectUser className='sidebar'/>
       <NavBar navItems={navItems} className='sidebar-nav' />
       <p className='sidebar__copyright'>Copiryght, SportSee 2020</p>
     </aside>
