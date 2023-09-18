@@ -1,5 +1,21 @@
 import { useComputeTicks } from '../../hook/useComputeTick';
 
+/**
+ * A component to render axes for charts.
+ *
+ * @component
+ * @param {Object} scale - The D3 scale object.
+ * @param {Array} ticksValue - The specific values to be used as ticks.
+ * @param {number} boundsMain - The primary boundary value (width or height) used for positioning.
+ * @param {boolean} [tick=true] - Indicates if ticks should be rendered.
+ * @param {boolean} [line=true] - Indicates if the main axis line should be rendered.
+ * @param {number} [ticksLength=6] - Length of each tick.
+ * @param {string} [mainClass='axis'] - The main CSS class for styling.
+ * @param {('horizontal'|'vertical')} [orientation='horizontal'] - The orientation of the axis.
+ * @param {number} [labelXOffset=0] - The X offset for label positioning.
+ * @param {Function} [mapLabelFunction=null] - An optional function to format the tick labels.
+ * @returns {JSX.Element} Returns a SVG group element (`<g>`) representing the axis.
+ */
 export function Axis({
   scale,
   ticksValue,
@@ -10,7 +26,7 @@ export function Axis({
   mainClass = 'axis',
   orientation = 'horizontal',
   labelXOffset = 0,
-  mapLabelFunction = null
+  mapLabelFunction = null,
 }) {
   const ticks = useComputeTicks(scale, ticksValue);
   if (orientation !== 'horizontal' && orientation !== 'vertical') {
@@ -18,9 +34,11 @@ export function Axis({
   }
 
   const isHorizontal = orientation === 'horizontal';
+  const [start, end] = scale.range();
+
   const axisLine = isHorizontal
-    ? ['M', scale.range()[0], 0, 'L', scale.range()[1], 0].join(' ')
-    : ['M', 0, scale.range()[0], 'L', 0, scale.range()[1]].join(' ');
+    ? `M ${start} 0 L ${end} 0`
+    : `M 0 ${start} L 0 ${end}`;
 
   const verticalTransform = (offset, otherOffset = 0) =>
     `translate(0, ${offset + otherOffset})`;
@@ -47,8 +65,8 @@ export function Axis({
       {ticks.map(({ value, offset }) => (
         <g
           key={value}
-          // on inverse car si c'est un axe horizontal et qu'on veut le deplacer vers le bas c'est bien
-          // une transformation vertical qu'il nous faut.
+          // We reverse because if it's a horizontal axis and we want to move it downwards,
+          // we indeed need a vertical transformation.
           transform={
             isHorizontal
               ? horizontalTransform(offset, labelXOffset)
@@ -63,9 +81,7 @@ export function Axis({
               className={`${mainClass}__ticks`}
             />
           )}
-          <text
-            className={`${mainClass}__text`}
-          >
+          <text className={`${mainClass}__text`}>
             {mapLabelFunction ? mapLabelFunction(value) : value}
           </text>
         </g>

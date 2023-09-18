@@ -1,21 +1,32 @@
 import { useMemo } from 'react';
 
+/**
+ * Computes tick values and offsets based on a given scale and tick value.
+ * 
+ * This hook memoizes its result to avoid unnecessary recalculations. It's designed to
+ * accommodate scenarios where data might change, but the scale remains the same.
+ * Users can either pass a fixed pixel distance between ticks or an array of desired tick values.
+ *
+ * @param {Function} scale - The D3 scale function.
+ * @param {number[]|number} ticksValue - Desired tick values as an array or the pixel distance between ticks.
+ * @returns {Object[]} Array of tick objects with value and offset.
+ */
 export function useComputeTicks(scale, ticksValue) {
   const range = scale.range();
-  
-  // utilisation de useMemo pour eviter des calcul inutile. Par exemple si
-  // les data changent le scale ne change pas forcement et donc recalculer les
-  // axes est inutile
+
+  // Using useMemo to avoid unnecessary calculations. For example, if
+  // the data changes, the scale does not necessarily change and therefore recalculating the
+  // axes is unnecessary.
   return useMemo(() => {
-    // on peut passer un tableau de valeur de ticks que l'on souhaite afficher
-    // ou alors la distance en px entre les ticks
+    // We can pass an array of tick values we want to display
+    // or the distance in px between the ticks.
     if (Array.isArray(ticksValue)) {
       return ticksValue.map((value) => ({
         value,
         offset: scale(value),
       }));
     }
-    // largeur du groupe principal
+    // width of the main group
     const height = Math.abs(range[1] - range[0]);
     const numberOfTicksTarget = Math.floor(height / ticksValue);
 

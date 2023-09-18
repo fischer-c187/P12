@@ -10,6 +10,16 @@ import { DataContext } from '../../context/dataContext';
 import './dailyActivityChart.scss';
 import DailyActivityLegend from '../dailyActivityLegend/dailyActivityLegend';
 
+/**
+ * The `DailyActivityChart` component displays a bar chart representing daily activity in terms of kilogram and calories.
+ * It includes axes, legends, and tooltips for better user interaction.
+ * 
+ * The data for this component is fetched from the `DataContext`.
+ *
+ *
+ * @returns {ReactElement} A responsive and interactive bar chart with associated legends and tooltips.
+ *
+ */
 export function DailyAcitvityChart() {
   const [hovered, setHovered] = useState(null);
   const refWrapper = useRef(null);
