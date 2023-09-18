@@ -1,0 +1,76 @@
+.daily-activity {
+  height: 320px;
+  position: relative;
+  background-color: var(--main-bg-chart);
+  border-radius: 5px;
+
+  &-first__legend-text, &-second__legend-text {
+    font-weight: 500;
+    fill: #74798C;
+  }
+
+  &-first__legend-circle {
+    fill: var(--second-bar-daily-color);
+  }
+
+  // title graph
+  &__label-text {
+    font-weight: 500;
+  }
+
+  &__rect-hover {
+    opacity: 0;
+    transition: opacity 100ms;
+    stroke: rgb(196, 196, 196);
+
+  
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__first-bar{
+    fill: var(--first-bar-daily-color);
+  }
+
+  &__second-bar {
+    fill: var(--second-bar-daily-color);
+  }
+
+  &__first-bar, &__second-bar {
+    pointer-events: none;
+  }
+
+  &__grid-line {
+    stroke: grey;
+  }
+
+  &-y-axis__text {
+    transform: translateX(40px);
+  }
+
+  &-x-axis__text {
+    transform: translateY(25px);
+  }
+
+  &-y-axis__text, &-x-axis__text {
+    dominant-baseline: middle;
+    text-anchor: middle;
+    font-size: 0.875rem;
+    font-weight: 500;
+    fill: #9B9EAC;
+  }
+
+  &__tooltip {
+    background-color: var(--bg-tooltip);
+    color: var(--secondary-color);
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    & > p:first-child {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+}
