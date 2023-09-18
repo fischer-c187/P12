@@ -113,23 +113,11 @@ export function formatUserInfosData(data) {
   return {
     ...dataObject.userInfos,
     score: dataObject.todayScore ?? dataObject.score,
-    macronutriment: {
-      calorie: {
-        value: dataObject.keyData.calorieCount,
-        unit: 'KCal',
-      },
-      protein: {
-        value: dataObject.keyData.proteinCount,
-        unit: 'g',
-      },
-      carbonhydrate: {
-        value: dataObject.keyData.carbonhydrateCount,
-        unit: 'g',
-      },
-      lipid: {
-        value: dataObject.keyData.lipidCount,
-        unit: 'g',
-      },
+    macronutrients: {
+      calorie: dataObject.keyData.calorieCount,
+      protein: dataObject.keyData.proteinCount,
+      carbohydrate: dataObject.keyData.carbohydrateCount,
+      lipid: dataObject.keyData.lipidCount
     },
   };
 } 
