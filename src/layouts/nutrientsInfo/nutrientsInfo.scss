@@ -1,0 +1,34 @@
+.nutrients {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  min-width: 210px;
+  max-width: 260px;
+  flex: 1;
+}
+
+.metric-card {
+  display: flex;
+  padding: 1.5rem;
+  background-color: var(--bg-metric-card);
+  border-radius: 5px;
+  gap: 1.5rem;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__value {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  &__category {
+    color: var(--label-color);
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+}
