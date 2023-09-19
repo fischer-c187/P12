@@ -1,3 +1,12 @@
+/**
+ * A presentational component that displays a metric with its associated image and label.
+ * 
+ * @param {string} props.image - The URL of the image to be displayed.
+ * @param {string|number} props.value - The value of the metric.
+ * @param {string} props.label - The label or category of the metric.
+ * 
+ * @returns {ReactElement} The rendered MetricCard component.
+ */
 function MetricCard({ image, value, label}) {
 
   return (

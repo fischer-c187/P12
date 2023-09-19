@@ -4,6 +4,11 @@ import { DataContext } from '../../context/dataContext';
 import MetricCard from '../../components/metricCard/metricCard';
 import './nutrientsInfo.scss';
 
+/**
+ * A component that displays a set of metric cards based on user's macronutrients data.
+ * 
+ * @returns {ReactElement|null} The rendered NutrientsInfo component or null if no data available.
+ */
 function NutrientsInfo() {
   const dataState = useContext(DataContext);
 
@@ -12,8 +17,6 @@ function NutrientsInfo() {
   }
 
   const { macronutrients } = dataState.data.user;
-
-  console.log(macronutrients);
 
   return (
     <section className='nutrients'>
