@@ -1,25 +1,36 @@
-.home-wrapper {
+.home {
   flex: 1;
   display: flex;
+  
 
-  .home-main {
+  &__content {
     margin: auto;
     height: 90%;
-    width: 80%;
+    width: min(80%, 1500px);
   }
 
-  .user-presentation {
-    &__title {
-      font-size: 3rem;
-      margin-bottom: 2rem;
-    }
+  &__metrics {
+    display: flex;
+    gap: 2%;
+  }
 
-    &__name-user {
-      color: var(--main-color-name-user);
-    }
+  &__chart {
+    flex: 3;
+  }
+}
 
-    &__message-incentive {
-      font-size: 1.25rem;
-    }
+.user-presentation {
+  margin-bottom: 4rem;
+  &__title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  &__name-user {
+    color: var(--main-color-name-user);
+  }
+
+  &__message-incentive {
+    font-size: 1.25rem;
   }
 }
