@@ -4,6 +4,7 @@ import HORIZONTAL_NAV_TEXT from '../../constants/horizontalNavText';
 import SIDEBAR_NAV_TEXT from '../../constants/sidebarText';
 import { DailyAcitvityChart } from '../../layouts/dailyActivityChart/dailyActivityChart';
 import Header from '../../layouts/header/header';
+import NutrientsInfo from '../../layouts/nutrientsInfo/nutrientsInfo';
 import Sidebar from '../../layouts/sidebar/sidebar';
 import './home.scss';
 
@@ -11,13 +12,18 @@ function Home() {
   return (
     <DataProvider>
       <Header navItems={HORIZONTAL_NAV_TEXT} />
-      <div className='home-wrapper'>
+      <div className='home'>
         <Sidebar navItems={SIDEBAR_NAV_TEXT} />
-        <main className='home-main'>
+        <main className='home__content'>
           <UserPresentation />
-          <DailyAcitvityChart />
+          <div className='home__metrics'>
+            <section className='home__chart'>
+              <DailyAcitvityChart />
+            </section>
+
+            <NutrientsInfo />
+          </div>
         </main>
-        
       </div>
     </DataProvider>
   );
