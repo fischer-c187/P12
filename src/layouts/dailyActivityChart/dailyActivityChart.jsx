@@ -38,7 +38,6 @@ export function DailyAcitvityChart() {
   if (!dataState.data) {
     return null;
   }
-
   const data = dataState.data.activity;
 
   const xAccessor = (d) => d.day.getDate();
@@ -87,7 +86,7 @@ export function DailyAcitvityChart() {
       xPosition:
         boundingBox.x + xScale.bandwidth() - marginLeft + 50 >
         dimensions.boundedWidth
-          ? boundingBox.x - marginLeft - xScale.bandwidth() / 2
+          ? boundingBox.x - marginLeft - xScale.bandwidth()
           : boundingBox.x - marginLeft + xScale.bandwidth(),
       yPosition: dimensions.marginTop - yOffset,
       calorie: rect.dataset.calorie,

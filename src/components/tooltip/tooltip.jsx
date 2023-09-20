@@ -25,7 +25,6 @@ export function Tooltip({
         position: 'absolute',
         left: `${interactionData.xPosition}px`,
         top: `${interactionData.yPosition}px`,
-        marginLeft: '15px',
         ...style,
       }}
     >
