@@ -11,7 +11,11 @@ import { mapDayToInitial } from '../../utils/lineChart';
 import { DataContext } from '../../context/dataContext';
 import ChartTitle from '../../components/chartTitle/chartTitle';
 
-export function AverageSessionChart() {
+/**
+ * Component that visualizes the average session length over a period.
+ *
+ */
+export function AverageSessionChart() { 
   const [interactionData, setInteractionData] = useState(null);
   const refWrapper = useRef(null);
   const dataState = useContext(DataContext);

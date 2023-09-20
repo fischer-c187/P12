@@ -1,5 +1,13 @@
 import { useSpring, animated } from 'react-spring';
 
+/**
+ * Renders an animated tooltip based on interaction data.
+ * 
+ * @param {Object} props.interactionData - The data related to the cursor's current interaction.
+ * @param {Object} props.dimensions - The dimensions of the tooltip's container.
+ * @param {string} [props.className='cursor__tooltip'] - Base CSS class for styling the tooltip.
+ * @returns {React.Element|null} Animated cursor tooltip or null if there's no interaction data.
+ */
 export function CursorToooltip({
   interactionData,
   dimensions,
