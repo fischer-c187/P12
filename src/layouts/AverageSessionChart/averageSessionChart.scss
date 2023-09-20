@@ -1,0 +1,54 @@
+.line-chart {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background-color: var(--bg-average-chart);
+  border-radius: 5px;
+
+  &__title {
+    position: absolute;
+    left: 30px;
+    top: 25px;
+    width: 65%;
+    font-weight: 500;
+    color: var(--color-average-chart-title);
+    opacity: 0.7;
+  }
+
+  &__path {
+    stroke: var(--color-average-chart-path);
+    stroke-width: 2;
+    opacity: 0.7;
+  }
+
+  &__text {
+    transform: translateY(20px);
+    text-anchor: middle;
+    fill: var(--color-average-chart-label);
+    opacity: 0.7;
+    font-weight: 500;
+  }
+
+  &__shade {
+    opacity: 0.2;
+    fill: var(--color-average-chart-shade);
+  }
+
+  &__indicator {
+    fill: white;
+  }
+
+  &__tooltip {
+    background-color: white;
+    padding: 0.25rem;
+    font-size: 0.625rem;
+    margin-left: 5px;
+    pointer-events: none;
+  }
+
+  &:hover &__path,
+  &:hover &__text,
+  &:hover &__title {
+    opacity: 0.9;
+  }
+}
