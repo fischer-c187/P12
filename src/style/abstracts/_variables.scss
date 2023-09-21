@@ -6,6 +6,9 @@
   --main-color-name-user: #FF0101;
   --main-bg-chart: #FBFBFB;
 
+  --desktop-font-size-nav: 1.5rem;
+  --main-font-family: 'Roboto', sans-serif;
+
   // daily activity chart
   --first-bar-daily-color: #000;
   --second-bar-daily-color: #FF0101;
@@ -30,7 +33,10 @@
   --color-stroke-level-performance-chart: #FFF;
   --color-label-performance-chart: #FFF;
 
-  --desktop-font-size-nav: 1.5rem;
-
-  --main-font-family: 'Roboto', sans-serif;
+  // scort chart
+  --bg-score-chart: #FBFBFB;
+  --color-circle-score-chart: #FFF;
+  --color-arc-score-chart: #FF0101;
+  --color-value-score-chart: #282D30;
+  --color-text-score-chart: #74798C;
 }
