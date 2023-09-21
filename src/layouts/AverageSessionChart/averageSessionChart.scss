@@ -4,6 +4,7 @@
   margin: auto;
   background-color: var(--bg-average-chart);
   border-radius: 5px;
+  transition: transform 200ms ease-in-out;
 
   &__title {
     position: absolute;
@@ -50,5 +51,9 @@
   &:hover &__text,
   &:hover &__title {
     opacity: 0.9;
+  }
+
+  &:hover {
+    transform: scale(1.06);
   }
 }
