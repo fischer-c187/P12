@@ -1,0 +1,29 @@
+.performance-chart {
+  background-color: var(--bg-performance-chart);
+  border-radius: 5px;
+  transition: transform 200ms ease-in-out;
+
+
+  &__label-text {
+    font-size: 0.75rem;
+    fill: var(--color-label-performance-chart);
+    font-weight: 500;
+    dominant-baseline: middle;
+    text-anchor: middle;
+  }
+
+  &__plot-path {
+    fill: var(--color-plot-performance-chart);
+    opacity: var(--opacity-plot-performance-chart);
+  }
+
+  &__levels-path {
+    fill: none;
+    stroke: var(--color-stroke-level-performance-chart);
+
+  }
+
+  &:hover {
+    transform: scale(1.06);
+  }
+}
