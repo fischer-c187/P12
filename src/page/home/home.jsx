@@ -9,7 +9,11 @@ import NutrientsInfo from '../../layouts/nutrientsInfo/nutrientsInfo';
 import Sidebar from '../../layouts/sidebar/sidebar';
 import './home.scss';
 import { PerformanceChart } from '../../layouts/performanceChart/performanceChart';
+import { ScoreChart } from '../../layouts/scoreChart/scoreChart';
 
+/**
+ * Home component serves as the entry point for the application and renders various sub-components.
+ */
 function Home() {
   return (
     <DataProvider>
@@ -25,6 +29,7 @@ function Home() {
               <div className='home__chart-grid'>
                 <AverageSessionChart />
                 <PerformanceChart />
+                <ScoreChart />
               </div>
             </section>
             <NutrientsInfo />
