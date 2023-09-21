@@ -8,6 +8,7 @@ import { AverageSessionChart } from '../../layouts/AverageSessionChart/averageSe
 import NutrientsInfo from '../../layouts/nutrientsInfo/nutrientsInfo';
 import Sidebar from '../../layouts/sidebar/sidebar';
 import './home.scss';
+import { PerformanceChart } from '../../layouts/performanceChart/performanceChart';
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <Header navItems={HORIZONTAL_NAV_TEXT} />
       <div className='home'>
         <Sidebar navItems={SIDEBAR_NAV_TEXT} />
+        
         <main className='home__content'>
           <UserPresentation />
           <div className='home__metrics'>
@@ -22,9 +24,9 @@ function Home() {
               <DailyAcitvityChart />
               <div className='home__chart-grid'>
                 <AverageSessionChart />
+                <PerformanceChart />
               </div>
             </section>
-
             <NutrientsInfo />
           </div>
         </main>
