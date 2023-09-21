@@ -11,7 +11,7 @@
 const HORIZONTAL_NAV_TEXT = [
   {
     text: 'Accueil',
-    link: '/'
+    link: '#'
   },
   {
     text: 'Profil',
