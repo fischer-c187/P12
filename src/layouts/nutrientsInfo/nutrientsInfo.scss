@@ -7,6 +7,13 @@
   min-width: 210px;
   max-width: 260px;
   flex: 1;
+
+  @media (max-width: 1200px) {
+    flex-direction: row;
+    min-width: 100%;
+    order: -1;
+    margin-bottom: 1rem;
+  }
 }
 
 .metric-card {
@@ -31,5 +38,14 @@
     color: var(--label-color);
     font-weight: 500;
     font-size: 0.875rem;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 1rem;
+    gap: 1rem;
+    width: fit-content;
+    & img {
+      height: 40px;
+    }
   }
 }

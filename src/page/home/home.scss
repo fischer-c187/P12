@@ -5,6 +5,7 @@
 
   &__content {
     margin: auto;
+    padding-top: 1rem;
     width: min(80%, 1500px);
   }
 
@@ -24,6 +25,12 @@
     margin-top: 1rem;
     gap: 1rem;
   }
+
+  @media (max-width: 1200px) {
+    &__metrics {
+      flex-direction: column;
+    }
+  }
 }
 
 .user-presentation {
@@ -39,5 +46,9 @@
 
   &__message-incentive {
     font-size: 1.25rem;
+  }
+
+  @media (max-width: 1200px) {
+    margin-bottom: 2rem;
   }
 }
