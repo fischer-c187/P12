@@ -29,6 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_DATA_MOCKED: 'true'
+      VITE_BASE_URL: '/'
 
     steps:
       - name: Checkout
